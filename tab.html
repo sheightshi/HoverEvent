@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Index</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+		/* var $hover = $(".tab .tab-head ul li");
+		$hover.hover(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			var index =  $hover.index(this);
+			$(".tab .tab-body .tab-bli").eq(index).show(200).siblings().hide();
+		});*/
+		$(".tab .tab-head ul li").hover(function () {  
+			$(this).parent().find("li.active").addClass("hide").removeClass("active");  
+			$(this).addClass("active").removeClass("hide");  
+			var parentsEl = $(this).parents(".tab");  
+			parentsEl.find(".tab-body .tab-db").addClass("tab-dn").removeClass("tab-db");  
+			/*页面静态内容*/  
+			var ary = parentsEl.find(".tab-head ul li"); 
+			parentsEl.find(".tab-body > div:eq(" + $.inArray(this, ary) + ")").addClass("tab-db").removeClass("tab-dn"); 
+		})
+	});
+</script> 
+<style>
+	*,html,body{ margin:0; padding:0;}
+	ul,li{ list-style-type:none;}
+	.clear{ clear:both}
+	.tab{ width:500px;}
+	.tab-head{}
+	.tab-head ul{overflow:hidden;}
+	.tab-head ul li{float: left;margin:0 1px; padding:5px 15px; background:#f1f1f1;}
+	.tab-head ul li.active{ background:#f60; color:#fff}
+	.tab-head.other ul li{ background:#eee;}
+	.tab-head.other ul li.active{ background:#06f; color:#fff}
+	.tab-head.other ul li.hide{}
+	.tab-body{ padding:10px;overflow:hidden}
+	.tab-dn{ display:none;}
+	.tab-db{ display:block}
+</style>
+</head>
+<body>
+	<div class="tab">
+		<div class="tab-head">
+			<ul>
+				<li class="active">tab01</li>
+				<li class="hide">tab02</li>
+				<li class="hide">tab03</li>
+			</ul>
+		</div>
+		<div class="tab-body">
+			<div class="tab-db">
+				<p>01</p>
+				<p>02</p>
+				<p>03</p>
+				<p>04</p>
+			</div>
+			<div class="tab-dn">
+				<p>1</p>
+				<p>2</p>
+				<p>44</p>
+				<p>44</p>
+				<p>44</p>
+				<p>3</p>
+				<p>4</p>
+			</div>
+			<div class="tab-dn">
+				<p>05</p>
+				<p>06</p>
+				<p>07</p>
+				<p>08</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="tab">
+		<div class="tab-head other">
+			<ul>
+				<li class="active">tab04</li>
+				<li class="hide">tab05</li>
+				<li class="hide">tab06</li>
+			</ul>
+		</div>
+		<div class="tab-body">
+			<div class="tab-db">
+				<p>11</p>
+				<p>22</p>
+				<p>33</p>
+				<p>44</p>
+				<p>44</p>
+				<p>44</p>
+				<p>44</p>
+			</div>
+			<div class="tab-dn">
+				<p>21</p>
+				<p>22</p>
+				<p>33</p>
+				<p>44</p>
+			</div>
+			<div class="tab-dn">
+				<p>55</p>
+				<p>66</p>
+				<p>77</p>
+				<p>88</p>
+				<p>44</p>
+				<p>44</p>
+				<p>44</p>
+				<p>44</p>
+				<p>44</p>
+				<p>44</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
